@@ -12,7 +12,7 @@ twitch_auth <- function(
   client_secret = Sys.getenv("TWITCH_SECRET")
 ) {
 
-  if (!assertthat::are_equal(client_id, "") | !assertthat::are_equal(client_secret, "") | !assertthat::are_equal(client_id, NULL) | !assertthat::are_equal(client_secret, NULL)) {
+  if (assertthat::are_equal(client_id, "") | assertthat::are_equal(client_secret, "") | assertthat::are_equal(client_id, NULL) | assertthat::are_equal(client_secret, NULL)) {
     usethis::ui_stop("{usethis::ui_value('client_id')} and {usethis::ui_value('client_secret')} need to set.")
   }
 

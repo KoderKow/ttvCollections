@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of ttvCollections is to download our highlights!
+The goal of ttvCollections is to download our highlights! This may turn into a separate package focusing on being a R wrapper for the Twitch API.
 
 ## Installation
 
@@ -32,3 +32,30 @@ There are three environment variables that are default values to function parame
 - TWITCH_CLIENT_ID
 - TWITCH_SECRET
 - TWITCH_USER_ID
+
+## Sample code
+
+### Auth
+
+```{r}
+library(ttvCollections)
+
+twitch_auth()
+```
+
+### Extract Highlights
+
+```{r}
+d <- get_hightlights()
+
+d
+```
+
+### Download a Hightlight
+
+```{r}
+urls <- d$url
+
+download_video(urls[5], "sample-prefix")
+```
+
